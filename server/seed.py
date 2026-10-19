@@ -17,3 +17,11 @@ with app.app_context():
     running = Exercise(name='Running', category='cardio', equipment_needed=False)
     yoga = Exercise(name='Yoga Flow', category='flexibility', equipment_needed=False)
     db.session.add_all([squat, pushup, running, yoga])
+
+
+        # Workouts
+    w1 = Workout(date=date(2026, 10, 12), duration_minutes=45, notes='Leg day')
+    w2 = Workout(date=date(2026, 10, 14), duration_minutes=30, notes='Cardio and core')
+    w3 = Workout(date=date(2026, 10, 16), duration_minutes=60, notes='Full body')
+    db.session.add_all([w1, w2, w3])
+    db.session.commit() 
