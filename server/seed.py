@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 
+from datetime import date
+
 from app import app
-from models import *
+from models import db, Exercise, Workout, WorkoutExercise
 
 with app.app_context():
-    # reset data and add new example data, committing to the database
-    pass
+   # Clear tables (child table first because of foreign keys)
+    WorkoutExercise.query.delete()
+    Workout.query.delete()
+    Exercise.query.delete()
