@@ -11,7 +11,7 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
-# Define Routes here
+# Define Routes 
 
 @app.route('/workouts', methods=['GET'])
 def get_workouts():
