@@ -25,3 +25,13 @@ with app.app_context():
     w3 = Workout(date=date(2026, 10, 16), duration_minutes=60, notes='Full body')
     db.session.add_all([w1, w2, w3])
     db.session.commit() 
+
+     # WorkoutExercises
+    db.session.add_all([
+        WorkoutExercise(workout_id=w1.id, exercise_id=squat.id, reps=10, sets=4),
+        WorkoutExercise(workout_id=w2.id, exercise_id=running.id, duration_seconds=1200),
+        WorkoutExercise(workout_id=w3.id, exercise_id=pushup.id, reps=15, sets=3),
+        WorkoutExercise(workout_id=w3.id, exercise_id=yoga.id, duration_seconds=600),
+    ])
+    db.session.commit()
+    print('Database seeded.')
