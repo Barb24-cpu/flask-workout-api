@@ -22,7 +22,7 @@ class Exercise(db.Model):
 
 
         # Relationships
-        workout_exercises = db.relationship(
+    workout_exercises = db.relationship(
         'WorkoutExercise', back_populates='exercise',
         cascade='all, delete-orphan')
     workouts = association_proxy('workout_exercises', 'workout')
@@ -34,7 +34,7 @@ class Exercise(db.Model):
             raise ValueError('Exercise name cannot be empty.')
         return value.strip()
 
-          @validates('category')
+    @validates('category')
     def validate_category(self, key, value):
         if value not in VALID_CATEGORIES:
             raise ValueError(f'Category must be one of: {", ".join(VALID_CATEGORIES)}.')
@@ -59,7 +59,7 @@ class Workout(db.Model):
     notes = db.Column(db.Text)
   
          # Relationships
-        workout_exercises = db.relationship(
+    workout_exercises = db.relationship(
         'WorkoutExercise', back_populates='workout',
         cascade='all, delete-orphan')
     exercises = association_proxy('workout_exercises', 'exercise')
@@ -100,7 +100,7 @@ class WorkoutExercise(db.Model):
     duration_seconds = db.Column(db.Integer)
 
          # Relationships
-        workout = db.relationship('Workout', back_populates='workout_exercises')
+    workout = db.relationship('Workout', back_populates='workout_exercises')
     exercise = db.relationship('Exercise', back_populates='workout_exercises')
 
      # Model validations
