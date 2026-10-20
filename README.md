@@ -10,7 +10,7 @@ many exercises, with reps, sets or duration recorded for each.
 ## Installation
 1. Clone the repo and enter it:
 ```bash
-   git clone https://github.com/YOUR-USERNAME/flask-workout-api.git
+   git clone https://github.com/Barb24-cpu/flask-workout-api.git
    cd flask-workout-api
 ```
 2. Install dependencies and activate the virtual environment:
