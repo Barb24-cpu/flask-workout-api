@@ -27,7 +27,7 @@ class WorkoutExerciseSchema(Schema):
     duration_seconds = fields.Int(allow_none=True)
     exercise = fields.Nested(ExerciseSchema, dump_only=True, validate=validate.Range(min=1))
 
-     @validates_schema
+    @validates_schema
     def require_some_measure(self, data, **kwargs):
         # A workout exercise must record reps/sets or a duration
         if not any(data.get(f) for f in ('reps', 'sets', 'duration_seconds')):
